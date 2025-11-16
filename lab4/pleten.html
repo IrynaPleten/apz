@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ірина Плетень АПЗ</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+body, html{
+    width:100%;
+    height:100%;
+    background:#000;
+    overflow:hidden;
+    font-family:Arial,sans-serif;
+}
+
+/* Центральний текст */
+.title{
+    position:absolute;
+    top:50%;
+    left:50%;
+    transform:translate(-50%, -50%);
+    color:#fff;
+    font-size:2.5rem;
+    text-align:center;
+    letter-spacing:2px;
+    text-shadow:0 0 25px cyan,0 0 40px #0ff;
+    z-index:10;
+}
+.title::after{
+    content:"Ірина Плетень, група 122-22-2";
+    animation:textChange 10s infinite;
+}
+@keyframes textChange{
+    0%,45% {content:"Ірина Плетень, група 122-22-2";}
+    50%,95% {content:"Бажаю успіхів та натхнення!";}
+    100% {content:"Ірина Плетень, група 122-22-2";}
+}
+
+/* Фон з дрібними зірками */
+.stars{
+    position:absolute;
+    width:100%;
+    height:100%;
+    top:0;
+    left:0;
+    z-index:1;
+}
+.star{
+    position:absolute;
+    background:#fff;
+    border-radius:50%;
+    opacity:0.8;
+    box-shadow:0 0 6px #fff,0 0 15px #fff;
+    animation: twinkle linear infinite;
+}
+/* Створимо багато зірок з різними розмірами */
+.star:nth-child(1){width:2px;height:2px;left:5%; animation-duration:10s;}
+.star:nth-child(2){width:3px;height:3px;left:15%; animation-duration:12s;}
+.star:nth-child(3){width:2px;height:2px;left:25%; animation-duration:9s;}
+.star:nth-child(4){width:4px;height:4px;left:35%; animation-duration:14s;}
+.star:nth-child(5){width:2px;height:2px;left:45%; animation-duration:11s;}
+.star:nth-child(6){width:3px;height:3px;left:55%; animation-duration:13s;}
+.star:nth-child(7){width:2px;height:2px;left:65%; animation-duration:8s;}
+.star:nth-child(8){width:4px;height:4px;left:75%; animation-duration:15s;}
+.star:nth-child(9){width:3px;height:3px;left:85%; animation-duration:10s;}
+.star:nth-child(10){width:2px;height:2px;left:95%; animation-duration:12s;}
+
+@keyframes twinkle{
+    0%{transform: translateY(-10px);opacity:0;}
+    50%{opacity:1;}
+    100%{transform: translateY(110vh);opacity:0;}
+}
+
+/* Падаючі зірки (shooting stars) */
+.shooting{
+    position:absolute;
+    width:4px;
+    height:4px;
+    background:#fff;
+    border-radius:50%;
+    box-shadow:0 0 0 4px rgba(255,255,255,0.1),0 0 0 8px rgba(255,255,255,0.1),0 0 20px rgba(255,255,255,0.1);
+    animation: shoot linear infinite;
+}
+.shooting::before{
+    content:'';
+    position:absolute;
+    top:50%;
+    transform:translateY(-50%);
+    width:300px;
+    height:1px;
+    background:linear-gradient(90deg,#fff,transparent);
+}
+/* Індивідуальні shooting stars */
+.shooting:nth-child(11){top:0;right:0; animation-delay:0s; animation-duration:1s;}
+.shooting:nth-child(12){top:0;right:80px; animation-delay:0.2s; animation-duration:3s;}
+.shooting:nth-child(13){top:80px;right:0; animation-delay:0.4s; animation-duration:2s;}
+.shooting:nth-child(14){top:0;right:180px; animation-delay:0.6s; animation-duration:1.5s;}
+.shooting:nth-child(15){top:0;right:400px; animation-delay:0.8s; animation-duration:2.5s;}
+.shooting:nth-child(16){top:0;right:600px; animation-delay:1s; animation-duration:3s;}
+
+
+@keyframes shoot{
+    0%{transform: rotate(315deg) translateX(0); opacity:1;}
+    70%{opacity:1;}
+    100%{transform: rotate(315deg) translateX(-1000px); opacity:0;}
+}
+</style>
+</head>
+<body>
+
+<div class="stars">
+    <div class="star"></div><div class="star"></div><div class="star"></div>
+    <div class="star"></div><div class="star"></div><div class="star"></div>
+    <div class="star"></div><div class="star"></div><div class="star"></div>
+    <div class="star"></div>
+
+    <div class="shooting"></div><div class="shooting"></div><div class="shooting"></div>
+    <div class="shooting"></div><div class="shooting"></div><div class="shooting"></div>
+    <div class="shooting"></div><div class="shooting"></div><div class="shooting"></div>
+    <div class="shooting"></div>
+</div>
+
+<div class="title"></div>
+
+</body>
+</html>
